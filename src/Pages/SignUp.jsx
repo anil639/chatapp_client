@@ -80,7 +80,7 @@ const SignUp = () => {
           "chat-app-current-user",
           JSON.stringify(data.user)
         );
-        navigate("/");
+        navigate("/setAvatar");
       }
     }
   };
