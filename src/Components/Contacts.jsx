@@ -28,7 +28,7 @@ const Contacts = ({ contacts }) => {
           <div className="contacts">
             {contacts.map((contact, index) => {
               return (
-                <div key={contact._id}>
+                <div className="contact" key={contact._id}>
                   <div className="avatar">
                     <img
                       src={`data:image/svg+xml;base64,${contact.avatarImage}`}
@@ -82,7 +82,7 @@ const Container = styled.div`
     flex-direction: column;
     align-items: center;
     overflow: auto;
-    gap: 0.8rem;
+    gap: 1rem;
     &::-webkit-scrollbar {
       width: 0.2rem;
       &-thumb {
@@ -107,15 +107,13 @@ const Container = styled.div`
           height: 3rem;
         }
       }
-      .username {
-        h3 {
-          color: white;
-        }
-      }
     }
     .selected {
       background-color: #9a86f3;
     }
+  }
+  .username {
+    color: white;
   }
 
   .current-user {

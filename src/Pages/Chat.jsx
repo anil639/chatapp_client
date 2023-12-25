@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import Welcome from "../Components/Welcome";
 import Contacts from "../Components/Contacts";
+import ChatContainer from "../Components/ChatContainer";
 const Chat = () => {
   const [currentUser, setCurrentUser] = useState(undefined);
   const [contacts, setContacts] = useState([]);
@@ -44,6 +45,7 @@ const Chat = () => {
           <Contacts contacts={contacts} />
           <Welcome />
         </div>
+        <ChatContainer />
       </Container>
     </div>
   );

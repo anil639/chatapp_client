@@ -33,6 +33,7 @@ const Container = styled.div`
   color: white;
   flex-direction: column;
   img {
+    margin-top: 25px;
     height: 20rem;
     border-radius: 2rem;
   }
