@@ -2,10 +2,10 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import wpSvg from "../Images/wp svg.svg";
 
-const Contacts = ({ contacts }) => {
+const Contacts = ({ contacts, changeChat }) => {
   const [currentUserName, setCurrentUserName] = useState(undefined);
   const [currentUserImage, setCurrentUserImage] = useState(undefined);
-
+  const [currentSelected, setCurrentSelected] = useState(undefined);
   useEffect(() => {
     async function setImgName() {
       const data = await JSON.parse(
@@ -16,6 +16,11 @@ const Contacts = ({ contacts }) => {
     }
     setImgName();
   }, []);
+
+  const changeCurrentChat = (index, contact) => {
+    setCurrentSelected(index);
+    changeChat(contact);
+  };
 
   return (
     <div style={{ marginTop: "25px" }}>
@@ -28,7 +33,13 @@ const Contacts = ({ contacts }) => {
           <div className="contacts">
             {contacts.map((contact, index) => {
               return (
-                <div className="contact" key={contact._id}>
+                <div
+                  key={contact._id}
+                  className={`contact ${
+                    index === currentSelected ? "selected" : ""
+                  }`}
+                  onClick={() => changeCurrentChat(index, contact)}
+                >
                   <div className="avatar">
                     <img
                       src={`data:image/svg+xml;base64,${contact.avatarImage}`}
